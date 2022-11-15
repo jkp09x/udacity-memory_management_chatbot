@@ -39,6 +39,10 @@ Currently, the program crashes when you close the window. There is a small bug h
 
 Aside from the bug mentioned above, there are five additional major student tasks in the Memory Management chatbot project, which are:
 
+### Task 0 : Warm-up Task (optional)
+In file `chatbot.h` / `chatbot.cpp`, Due to improper use of memory management the app crashses when user tries to close the app. Find the bug.
+<p style="background-color:green;color:white;">Since the memory was allocated on the stack, no need to delete.</p>
+
 ### Task 1 : Exclusive Ownership 1
 In file `chatgui.h` / `chatgui.cpp`, make `_chatLogic` an exclusive resource to class `ChatbotPanelDialog` using an appropriate smart pointer. Where required, make changes to the code such that data structures and function parameters reflect the new structure. 
 
