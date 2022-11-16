@@ -64,9 +64,9 @@ Aside from the bug mentioned above, there are five additional major student task
   <b>Exclusive Ownership 1: </b>In file `chatgui.h` / `chatgui.cpp`, make `_chatLogic` an exclusive resource to class `ChatbotPanelDialog` using an appropriate smart pointer. Where required, make changes to the code such that data structures and function parameters reflect the new structure.
 </td>
 <td>
-<b>SOLUTION</b>
+  Converted raw pointer to smart pointer for <code>_chatLogic</code>
 </td>
-<td></td>
+<td>DONE</td>
 </tr>
 <!-- TASK 2 -->
 <tr>
