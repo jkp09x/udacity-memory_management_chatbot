@@ -107,6 +107,7 @@ Aside from the bug mentioned above, there are five additional major student task
   <td>
     <b>MOVING THE CHATBOT: </b>In file `chatlogic.cpp`, create a local `ChatBot` instance on the stack at the bottom of function `LoadAnswerGraphFromFile`. Then, use move semantics to pass the `ChatBot` instance into the root node. Make sure that `ChatLogic` has no ownership relation to the `ChatBot` instance and thus is no longer responsible for memory allocation and deallocation. Note that the member `_chatBot` of `ChatLogic` remains so it can be used as a communication handle between GUI and `ChatBot` instance. Make all required changes in files `chatlogic.h` / `chatlogic.cpp` and `graphnode.h` / `graphnode.cpp`. When the program is executed, messages on which part of the Rule of Five components of `ChatBot` is called should be printed to the console. When sending a query to the `ChatBot`, the output should look like the following:   
 <pre><code>ChatBot Constructor
+ChatBot Constructor
 ChatBot Move Constructor
 ChatBot Move Assignment Operator
 ChatBot Destructor
