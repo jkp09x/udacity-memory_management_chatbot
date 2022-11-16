@@ -43,7 +43,73 @@ ChatBot::~ChatBot()
 
 //// STUDENT CODE
 ////
+ChatBot::ChatBot(const ChatBot& botContent)
+{
+  std::cout << "Chatbot copy constructor called. Copying instance " << &botContent << " to instance " << this << std::endl;
+  _rootNode = botContent._rootNode;
+  _chatLogic = botContent._chatLogic;
+  _image = new wxBitmap(*botContent._image);
+}
 
+ChatBot &ChatBot::operator=(const ChatBot& botContent)
+{
+  if (this == &botContent) {
+    std::cout << "Chatbot copy assignment operator called. Trying to assign same instance to itself, skipping operation." << std::endl;
+    return *this;
+  }
+
+  std::cout << "Chatbot copy assignment operator called. Assigning instance " << &botContent << " to instance " << this << std::endl;
+
+  // cleanup image
+  delete _image;
+
+  // copy content
+  _rootNode = botContent._rootNode;
+  _chatLogic = botContent._chatLogic;
+  _image = new wxBitmap(*botContent._image);
+
+  return *this;
+}
+
+ChatBot::ChatBot(ChatBot&& botContent)
+{
+  std::cout << "Chatbot move constructor called. Moving instance " << &botContent << " to instance " << this << std::endl;
+
+  // moving content
+  _rootNode = botContent._rootNode;
+  _chatLogic = botContent._chatLogic;
+  _image = botContent._image;
+
+  // cleaup memory
+  botContent._rootNode = nullptr;
+  botContent._chatLogic = nullptr;
+  botContent._image = NULL;
+}
+
+ChatBot &ChatBot::operator=(ChatBot&& botContent)
+{
+  if (this == &botContent) {
+    std::cout << "Chatbot move assignment operator called. Trying to assign same instance to itself, skipping operation." << std::endl;
+    return *this;
+  }
+
+  std::cout << "Chatbot move assignment operator called. Assigning instance " << &botContent << " to instance " << this << std::endl;
+
+  // cleanup image
+  delete _image;
+
+  // move semantics
+  _rootNode = botContent._rootNode;
+  _chatLogic = botContent._chatLogic;
+  _image = botContent._image;
+
+  // cleanup
+  botContent._rootNode = nullptr;
+  botContent._chatLogic = nullptr;
+  botContent._image = NULL;
+
+  return *this;
+}
 ////
 //// EOF STUDENT CODE
 
