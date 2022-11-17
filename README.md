@@ -85,9 +85,9 @@ Aside from the bug mentioned above, there are five additional major student task
   <b>Exclusive Ownership 2: </b>In file `chatlogic.h` / `chatlogic.cpp`, adapt the vector `_nodes` in a way that the instances of `GraphNodes` to which the vector elements refer are exclusively owned by the class `ChatLogic`. Use an appropriate type of smart pointer to achieve this. Where required, make changes to the code such that data structures and function parameters reflect the changes. When passing the `GraphNode` instances to functions, make sure to not transfer ownership and try to contain the changes to class `ChatLogic` where possible.
 </td>
 <td>
-<b>SOLUTION</b>
+Converted raw pointers to smart pointers
 </td>
-<td></td>
+<td>DONE</td>
 </tr>
 <!-- TASK 4 -->
 <tr>
