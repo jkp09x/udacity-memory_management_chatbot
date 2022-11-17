@@ -96,9 +96,9 @@ Converted raw pointers to smart pointers
     <b>MOVING SMART POINTERS: </b> In files `chatlogic.h` / `chatlogic.cpp` and `graphnode.h` / `graphnode.cpp` change the ownership of all instances of `GraphEdge` in a way such that each instance of `GraphNode` exclusively owns the outgoing `GraphEdges` and holds non-owning references to incoming `GraphEdges`. Use appropriate smart pointers and where required, make changes to the code such that data structures and function parameters reflect the changes. When transferring ownership from class `ChatLogic`, where all instances of `GraphEdge` are created, into instances of `GraphNode`, make sure to use move semantics.
   </td>
   <td>
-    <b>SOLUTION</b>
+    changed ownerships using move semantics.
   </td>
-  <td></td>
+  <td>DONE</td>
 </tr>
 <!-- TASK 5 -->
 <tr>
@@ -115,8 +115,8 @@ ChatBot Destructor
 
   </td>
   <td>
-    <b>SOLUTION</b>
+    Moved chatbot to appropriate location
   </td>
-  <td></td>
+  <td>DONE</td>
 </tr>
 </table>

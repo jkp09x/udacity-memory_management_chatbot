@@ -41,14 +41,13 @@ ChatBot::~ChatBot()
     }
 }
 
-//// STUDENT CODE
-////
 ChatBot::ChatBot(const ChatBot& botContent)
 {
   std::cout << "Chatbot copy constructor called. Copying instance " << &botContent << " to instance " << this << std::endl;
   _rootNode = botContent._rootNode;
   _chatLogic = botContent._chatLogic;
   _image = new wxBitmap(*botContent._image);
+  _chatLogic->SetChatbotHandle(this);
 }
 
 ChatBot &ChatBot::operator=(const ChatBot& botContent)
@@ -67,6 +66,7 @@ ChatBot &ChatBot::operator=(const ChatBot& botContent)
   _rootNode = botContent._rootNode;
   _chatLogic = botContent._chatLogic;
   _image = new wxBitmap(*botContent._image);
+  _chatLogic->SetChatbotHandle(this);
 
   return *this;
 }
@@ -102,6 +102,7 @@ ChatBot &ChatBot::operator=(ChatBot&& botContent)
   _rootNode = botContent._rootNode;
   _chatLogic = botContent._chatLogic;
   _image = botContent._image;
+  _chatLogic->SetChatbotHandle(this);
 
   // cleanup
   botContent._rootNode = nullptr;
@@ -110,8 +111,6 @@ ChatBot &ChatBot::operator=(ChatBot&& botContent)
 
   return *this;
 }
-////
-//// EOF STUDENT CODE
 
 void ChatBot::ReceiveMessageFromUser(std::string message)
 {
@@ -160,6 +159,9 @@ void ChatBot::SetCurrentNode(GraphNode *node)
 
     // send selected node answer to user
     _chatLogic->SendMessageToUser(answer);
+
+    // Update chatbot handle
+    _chatLogic->SetChatbotHandle(this);
 }
 
 int ChatBot::ComputeLevenshteinDistance(std::string s1, std::string s2)
